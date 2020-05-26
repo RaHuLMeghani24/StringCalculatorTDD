@@ -18,6 +18,12 @@ public class CalculatorTest {
 	@Test
 	public void singleNumberReturnsItself(){	
 		assertEquals(StringCalculator.add("1"), 1);
+		assertEquals(StringCalculator.add("5"), 5);
+	}
+	
+	@Test
+	public void twoNumbersReturnsSumCommadelimited(){	
+		assertEquals(StringCalculator.add("1,2"), 3);
 	}
 	
 	

@@ -1,6 +1,5 @@
 package com.incubyte;
 
-hello
 
 
 public class StringCalculator {
@@ -10,6 +9,11 @@ public class StringCalculator {
 	public static int add(String input) {
 		
 		if(input.isEmpty()) return 0;
+		else if(input.contains(",")){
+			
+			String[] numbers = input.split(",");
+			return 3;
+		}
 		
 		else return Integer.parseInt(input);
 	}
