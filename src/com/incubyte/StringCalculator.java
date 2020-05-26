@@ -16,8 +16,7 @@ public class StringCalculator {
 
 
 
-	public static int add(String input) {
-		if(input.isEmpty()) return 0;
+	public static int add(String input) {		
 		return extractInput(input).sum();
 	}
 	
@@ -38,15 +37,15 @@ public class StringCalculator {
 	}
 	
 	private IntStream extractNumbers(){
-		return Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt);
+		if(numbers.isEmpty()) return IntStream.empty();
+		else
+			return Stream.of(numbers.split(delimiter)).mapToInt(Integer::parseInt);
 		
 	}
 	
 	private static StringCalculator extractInput(String input){
 		
-		
-		
-		
+	
 		if(input.startsWith("//")){
 			String[] extract = input.split("\n",2);
 			return  new StringCalculator(extract[0].substring(2), extract[1]);
