@@ -24,6 +24,7 @@ public class CalculatorTest {
 	@Test
 	public void twoNumbersReturnsSumCommadelimited(){	
 		assertEquals(StringCalculator.add("1,2"), 3);
+		assertEquals(StringCalculator.add("5,1"), 6);
 	}
 	
 	
