@@ -39,12 +39,18 @@ public class CalculatorTest {
 	public void twoNumbersReturnsSumNewLineDelimited(){	
 		assertEquals(StringCalculator.add("2\n3"), 5);
 		assertEquals(StringCalculator.add("5\n1"), 6);
-	}
+	}	
 	
 	@Test
 	public void sumsNumberDelimitedByCommaOrNewLine(){	
 		assertEquals(StringCalculator.add("2,3\n1"), 6);
 		assertEquals(StringCalculator.add("5\n1,1"), 7);
+	}
+	
+	@Test
+	public void usesCustomDelimiterSpecified(){	
+		assertEquals(StringCalculator.add("//;\n1;3"), 4);
+		
 	}
 	
 }
