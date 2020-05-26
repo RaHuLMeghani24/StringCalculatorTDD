@@ -82,4 +82,9 @@ public class CalculatorTest {
 		assertEquals(StringCalculator.add("2,1001"), 2);
 	}
 	
+	@Test
+	public void acceptsCustomDelimiterOfArbitraryLength() {
+		assertEquals(StringCalculator.add("//[***]\n1***2***3"), 6);
+	}
+	
 }
