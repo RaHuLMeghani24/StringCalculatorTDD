@@ -22,17 +22,29 @@ public class CalculatorTest {
 	}
 	
 	@Test
-	public void twoNumbersReturnsSumCommadelimited(){	
+	public void twoNumbersReturnsSumCommaDelimited(){	
 		assertEquals(StringCalculator.add("1,2"), 3);
 		assertEquals(StringCalculator.add("5,1"), 6);
 	}
 	
-	//Test's to handle n number of numbers in input
+	//Test to handle n number of numbers in input
 	
 	@Test
-	public void threeNumbersReturnsSumCommadelimited(){	
+	public void threeNumbersReturnsSumCommaDelimited(){	
 		assertEquals(StringCalculator.add("1,2"), 3);
 		assertEquals(StringCalculator.add("5,1"), 6);
+	}
+	
+	@Test
+	public void twoNumbersReturnsSumNewLineDelimited(){	
+		assertEquals(StringCalculator.add("2\n3"), 5);
+		assertEquals(StringCalculator.add("5\n1"), 6);
+	}
+	
+	@Test
+	public void sumsNumberDelimitedByCommaOrNewLine(){	
+		assertEquals(StringCalculator.add("2,3\n1"), 6);
+		assertEquals(StringCalculator.add("5\n1,1"), 7);
 	}
 	
 }
