@@ -2,7 +2,11 @@ package com.incubyte;
 import static org.junit.Assert.assertEquals;
 
 
+
+
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import com.incubyte.StringCalculator;
 
@@ -49,8 +53,26 @@ public class CalculatorTest {
 	
 	@Test
 	public void usesCustomDelimiterSpecified(){	
-		assertEquals(StringCalculator.add("//;\n1;3"), 4);
-		
+		assertEquals(StringCalculator.add("//;\n1;3"), 4);	
+	}
+	
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
+
+	@Test
+	public void firesExceptionOnNegativeNumber() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negative number: -3");
+
+		StringCalculator.add("-3");
+	}
+	
+	@Test
+	public void firesExceptionOnNegativeNumbersWithAllNumbersInExceptionMessage() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negative number: -4,-5,-5");
+
+		StringCalculator.add("1,-4,-5,-5,14");
 	}
 	
 }

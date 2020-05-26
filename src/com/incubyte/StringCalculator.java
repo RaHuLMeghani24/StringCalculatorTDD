@@ -17,22 +17,34 @@ public class StringCalculator {
 
 
 	public static int add(String input) {
-		
 		if(input.isEmpty()) return 0;
-		
 		return extractInput(input).sum();
-		
-		
 	}
 	
 	private int sum(){
 		
-		return Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt).sum();
+		checkNegativeNumbersIfAny();
+		return extractNumbers().sum();
+	}
+	
+	private void checkNegativeNumbersIfAny(){
+		String negativeNumberSequence = extractNumbers().filter(n -> n < 0)
+				.mapToObj(Integer::toString)
+				.collect(Collectors.joining(","));
+		if (!negativeNumberSequence.isEmpty()) {
+			throw new IllegalArgumentException("negative number: " + negativeNumberSequence);
+		}
+		
+	}
+	
+	private IntStream extractNumbers(){
+		return Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt);
+		
 	}
 	
 	private static StringCalculator extractInput(String input){
 		
-		StringCalculator calculator;
+		
 		
 		
 		if(input.startsWith("//")){
