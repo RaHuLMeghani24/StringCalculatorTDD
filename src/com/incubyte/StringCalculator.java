@@ -20,12 +20,14 @@ public class StringCalculator {
 		
 		if(input.isEmpty()) return 0;
 		
-		StringCalculator calculator = extractInput(input);
-			
-		 
-		return Arrays.stream(calculator.numbers.split(calculator.delimiter)).mapToInt(Integer::parseInt).sum();
-			
+		return extractInput(input).sum();
 		
+		
+	}
+	
+	private int sum(){
+		
+		return Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt).sum();
 	}
 	
 	private static StringCalculator extractInput(String input){
@@ -35,11 +37,11 @@ public class StringCalculator {
 		
 		if(input.startsWith("//")){
 			String[] extract = input.split("\n",2);
-			calculator =  new StringCalculator(extract[0].substring(2), extract[1]);
+			return  new StringCalculator(extract[0].substring(2), extract[1]);
 		}else {
-			calculator = new StringCalculator(",|\n", input);
+			return new StringCalculator(",|\n", input);
 		}
-		return calculator;
+	
 		
 	}
 }
