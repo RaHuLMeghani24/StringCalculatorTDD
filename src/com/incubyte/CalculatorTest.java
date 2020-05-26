@@ -75,4 +75,9 @@ public class CalculatorTest {
 		StringCalculator.add("1,-4,-5,-5,14");
 	}
 	
+	@Test
+	public void ignoresNumbersAbove1000() {
+		assertEquals(StringCalculator.add("2,1001"), 2);
+	}
+	
 }

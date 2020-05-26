@@ -39,7 +39,7 @@ public class StringCalculator {
 	private IntStream extractNumbers(){
 		if(numbers.isEmpty()) return IntStream.empty();
 		else
-			return Stream.of(numbers.split(delimiter)).mapToInt(Integer::parseInt);
+			return Stream.of(numbers.split(delimiter)).mapToInt(Integer::parseInt).filter(n -> n<1001);
 		
 	}
 	
