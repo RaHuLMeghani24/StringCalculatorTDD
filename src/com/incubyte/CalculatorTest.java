@@ -53,7 +53,9 @@ public class CalculatorTest {
 	
 	@Test
 	public void usesCustomDelimiterSpecified(){	
-		assertEquals(StringCalculator.add("//;\n1;3"), 4);	
+		assertEquals(StringCalculator.add("//;\n1;3"), 4);
+		assertEquals(StringCalculator.add("//.\n1.3"), 4);
+		
 	}
 	
 	@Rule
