@@ -15,5 +15,10 @@ public class CalculatorTest {
 		assertEquals(StringCalculator.add(""), 0);
 	}
 	
+	@Test
+	public void singleNumberReturnsItself(){	
+		assertEquals(StringCalculator.add("1"), 1);
+	}
+	
 	
 }
