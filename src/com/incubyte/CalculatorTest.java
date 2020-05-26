@@ -87,4 +87,11 @@ public class CalculatorTest {
 		assertEquals(StringCalculator.add("//[***]\n1***2***3"), 6);
 	}
 	
+	@Test
+	public void acceptsMultipleDelimitersofArbitraryLength() {
+		assertEquals(StringCalculator.add("//[-][;]\n1-2;3"), 6);
+		assertEquals(StringCalculator.add("//[--][...]\n2--3...4"), 9);
+		assertEquals(StringCalculator.add("//[**][%%]\n1**2%%3"), 6);
+	}
+	
 }
