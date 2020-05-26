@@ -27,5 +27,12 @@ public class CalculatorTest {
 		assertEquals(StringCalculator.add("5,1"), 6);
 	}
 	
+	//Test's to handle n number of numbers in input
+	
+	@Test
+	public void threeNumbersReturnsSumCommadelimited(){	
+		assertEquals(StringCalculator.add("1,2"), 3);
+		assertEquals(StringCalculator.add("5,1"), 6);
+	}
 	
 }
